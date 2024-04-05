@@ -4,6 +4,8 @@
 
 
 #include "menu.h"
+#include "cliente.h"
+#include "arquivo.h"
 
 
 #include <stdio.h>

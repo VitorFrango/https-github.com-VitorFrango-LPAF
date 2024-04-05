@@ -7,5 +7,11 @@
 
 void exibirMenuPrincipal();
 void exibirSubMenuClientes();
+void exibirSubMenuPresencas();
+void exibirSubMenuPagamentos();
+void exibirSubMenuRelatorios();
+
+
+
 
 #endif //INC_21178LABPRO_MENU_H

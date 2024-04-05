@@ -64,11 +64,15 @@ int main() {
     Cliente *clientes = NULL;
     int totalClientes = 0;
 
+
+  /*
     // teste de uso das funções
     lerDadosClientes(&clientes, &totalClientes);
     exibirMenuPrincipal();
     gravarDadosClientes(clientes, totalClientes);
     libertarMemoriaClientes(&clientes, &totalClientes);
+
+    */
 
     return 0;
 }
