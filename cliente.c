@@ -3,9 +3,12 @@
 //
 
 #include "cliente.h"
+#include "menu.h"
+#include "arquivo.h"
 
 #include <stdlib.h>
 #include <string.h>
+
 
 
 void adicionarCliente(Cliente **clientes, int *totalClientes, Cliente novoCliente) {
@@ -36,21 +39,19 @@ void editarCliente(Cliente *clientes, int totalClientes, char *nomeCliente, Clie
     }
 }
 
-Cliente *pesquisarCliente(Cliente *clientes, int totalClientes, char *criterio, char *valor) {
-    Cliente *resultado = NULL;
+
+// Alterando o tipo de retorno para Cliente* e ajustando a lógica de retorno.
+Cliente* pesquisarCliente(Cliente *clientes, int totalClientes, char *criterio, char *valor) {
     for (int i = 0; i < totalClientes; i++) {
         if (strcmp(criterio, "nome") == 0 && strcmp(clientes[i].nome, valor) == 0) {
-            resultado = &clientes[i];
-            break;
-        } else if (strcmp(criterio, "numero_de_socio") == 0 && clientes[i].numero_de_socio == atoi(valor)){
-            resultado = &clientes[i];
-            break;
+            return &clientes[i];
+        } else if (strcmp(criterio, "numero_de_socio") == 0 && clientes[i].numero_de_socio == atoi(valor)) {
+            return &clientes[i];
         } else if (strcmp(criterio, "plano_de_treinos") == 0 && strcmp(clientes[i].plano_de_treinos, valor) == 0) {
-            resultado = &clientes[i];
-            break;
+            return &clientes[i];
         }
     }
-    return resultado;
+    return NULL; // Retornando NULL se nenhum cliente for encontrado.
 }
 
 void libertarMemoriaClientes(Cliente **clientes, int *totalClientes) {
@@ -59,4 +60,15 @@ void libertarMemoriaClientes(Cliente **clientes, int *totalClientes) {
     *totalClientes = 0;
 }
 
-// Path: AF2/arquivo.c
+int main() {
+    Cliente *clientes = NULL;
+    int totalClientes = 0;
+
+    // teste de uso das funções
+    lerDadosClientes(&clientes, &totalClientes);
+    exibirMenuPrincipal();
+    gravarDadosClientes(clientes, totalClientes);
+    libertarMemoriaClientes(&clientes, &totalClientes);
+
+    return 0;
+}

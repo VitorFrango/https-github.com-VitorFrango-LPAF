@@ -4,7 +4,7 @@
 
 
 #include "menu.h"
-#include "cliente.h"
+
 
 #include <stdio.h>
 
@@ -22,7 +22,7 @@ void exibirMenuPrincipal() {
 
         switch (escolha) {
             case 1:
-                exibirMenuClientes();
+                exibirSubMenuClientes();
                 break;
             case 2:
                 printf("Gerir presenças...\n");

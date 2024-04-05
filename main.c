@@ -27,6 +27,7 @@ O programa deve ser modular, com cada funcionalidade implementada num módulo se
 //main.c
 
 #include "menu.h"
+#include "cliente.h"
 
 int main() {
 
